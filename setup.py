@@ -10,7 +10,7 @@ def get_requirements(filePath:str)->List[str]:
     with open(filePath) as file:
         requirements = file.readlines()
         requirements = [req.replace("\n", " ") for req in requirements]
-    
+    return requirements
 
 setup(
     name="mlProject",
