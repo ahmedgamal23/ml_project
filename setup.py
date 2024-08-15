@@ -1,5 +1,16 @@
 from setuptools import find_packages, setup
+from typing import List
 
+
+def get_requirements(filePath:str)->List[str]:
+    '''
+    this function will return the list of requirements
+    '''
+    requirements = []
+    with open(filePath) as file:
+        requirements = file.readlines()
+        requirements = [req.replace("\n", " ") for req in requirements]
+    
 
 setup(
     name="mlProject",
@@ -7,7 +18,7 @@ setup(
     author='Ahmed Gamal',
       author_email='ahmedgamal52001@gmail.com',
       packages=find_packages(),
-      install_requires=['pandas','numpy', 'matplotlib', 'seaborn', 'sklearn']
+      install_requires=get_requirements('requirements.txt')
 )
 
 
